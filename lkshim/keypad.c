@@ -46,10 +46,10 @@ uint32_t target_volume_up(void)
 		return 0;
 	struct pm8x41_gpio gpio;
 
-		gpio.direction = PM_GPIO_DIR_IN;
-		gpio.function  = 0;
-		gpio.pull      = PM_GPIO_PULL_UP_30;
-		gpio.vin_sel   = 2;
+	gpio.direction = PM_GPIO_DIR_IN;
+	gpio.function  = 0;
+	gpio.pull      = PM_GPIO_PULL_UP_30;
+	gpio.vin_sel   = 2;
 	pm8x41_gpio_config(TLMM_VOL_UP_BTN_GPIO, &gpio);
 	
 	udelay(10000);
@@ -67,10 +67,10 @@ uint32_t target_volume_down(void)
 		return 0;
 	struct pm8x41_gpio gpio;
 
-		gpio.direction = PM_GPIO_DIR_IN;
-		gpio.function  = 0;
-		gpio.pull      = PM_GPIO_PULL_UP_30;
-		gpio.vin_sel   = 2;
+	gpio.direction = PM_GPIO_DIR_IN;
+	gpio.function  = 0;
+	gpio.pull      = PM_GPIO_PULL_UP_30;
+	gpio.vin_sel   = 2;
 	pm8x41_gpio_config(TLMM_VOL_DOWN_BTN_GPIO, &gpio);
 	
 	udelay(10000);

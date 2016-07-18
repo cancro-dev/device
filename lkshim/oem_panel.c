@@ -57,7 +57,6 @@ enum {
 	UNKNOWN_PANEL
 };
 
-
 /*
  * The list of panels that are supported on this target.
  * Any panel in this list can be selected using fastboot oem command.
@@ -108,7 +107,7 @@ int oem_panel_select(const char *panel_name, struct panel_struct *panelstruct,
 {
 
 	uint32_t hw_id = board_hardware_id();
-		int32_t panel_override_id;
+	int32_t panel_override_id;
 
 	if (panel_name) {
 		panel_override_id = panel_name_to_id(supp_panels,

@@ -104,38 +104,7 @@ int init_panel_data(struct panel_struct *panelstruct,
 int oem_panel_select(const char *panel_name, struct panel_struct *panelstruct,
 			struct msm_panel_info *pinfo,
 			struct mdss_dsi_phy_ctrl *phy_db)
-{
-
-	uint32_t hw_id = board_hardware_id();
-	int32_t panel_override_id;
-
-	if (panel_name) {
-		panel_override_id = panel_name_to_id(supp_panels,
-				ARRAY_SIZE(supp_panels), panel_name);
-
-		if (panel_override_id < 0) {
-			dprintf(CRITICAL, "Not able to search the panel:%s\n",
-					 panel_name);
-		} else if (panel_override_id < UNKNOWN_PANEL) {
-		
-			panel_id = panel_override_id;
-
-			dprintf(INFO, "OEM panel override:%s\n",
-					panel_name);
-			goto panel_init;
-		}
-	}
-
-	switch (hw_id) {
-	case 150:
-		panel_id = JDI_1080P_VIDIO_PANEL_HAMMERHEAD;
-		break;
-	default:
-		dprintf(CRITICAL, "Display not enabled for %d HW type\n"
-					, hw_id);
-		return PANEL_TYPE_UNKNOWN;
-	}
-
-panel_init:
+{	
+	panel_id = JDI_1080P_VIDIO_PANEL_HAMMERHEAD;
 	return init_panel_data(panelstruct, pinfo, phy_db);
 }

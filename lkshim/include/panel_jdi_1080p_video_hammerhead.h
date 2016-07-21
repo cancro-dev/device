@@ -90,11 +90,11 @@ static char jdi_1080p_video_hammerhead_on_cmd4[] = {
 
 
 static struct mipi_dsi_cmd jdi_1080p_video_hammerhead_on_command[] = {
-{ 0x4 , jdi_1080p_video_hammerhead_on_cmd0, 0x0},
-{ 0x4 , jdi_1080p_video_hammerhead_on_cmd1, 0x0},
-{ 0x4 , jdi_1080p_video_hammerhead_on_cmd2, 0x0},
-{ 0x4 , jdi_1080p_video_hammerhead_on_cmd3, 0x0},
-{ 0x4 , jdi_1080p_video_hammerhead_on_cmd4, 0x0}
+{ 0x4 , jdi_1080p_video_hammerhead_on_cmd0, 100},
+{ 0x4 , jdi_1080p_video_hammerhead_on_cmd1, 100},
+{ 0x4 , jdi_1080p_video_hammerhead_on_cmd2, 100},
+{ 0x4 , jdi_1080p_video_hammerhead_on_cmd3, 100},
+{ 0x4 , jdi_1080p_video_hammerhead_on_cmd4, 100}
 };
 #define JDI_1080P_VIDEO_ON_COMMAND 5
 

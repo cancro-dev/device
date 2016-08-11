@@ -75,7 +75,7 @@ int init_panel_data(struct panel_struct *panelstruct,
 {
 		int pan_type = PANEL_TYPE_DSI;
 
-	//	panelstruct->paneldata->panel_destination = (char *)"DISPLAY_1";
+		panelstruct->paneldata->panel_destination = (char *)"DISPLAY_1";
 		panelstruct->paneldata    = &sharp_fhd_cmd_95_panel_data;
 		panelstruct->panelres     = &sharp_fhd_cmd_95_panel_res;
 		panelstruct->color        = &sharp_fhd_cmd_95_color;

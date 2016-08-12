@@ -30,7 +30,9 @@
 #include <target/display.h>
 #include <msm_panel.h>
 #include <gcdb_display.h>
+#include <pm8x41_wled.h>
 
-int target_backlight_ctrl(struct backlight *bl, uint8_t enable) {
-    return NO_ERROR;
+int target_backlight_ctrl(struct backlight *bl, uint8_t enable)
+{
+return 0;
 }

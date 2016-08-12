@@ -1,9 +1,83 @@
+/* Copyright (c) 2016, sndnvaps<sndnvaps@gmail.com>. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *     * Neither the name of The Linux Foundation nor the names of its
+ *       contributors may be used to endorse or promote products derived
+ *       from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <stdlib.h>
+#include <stdio.h>
 #include <pm8x41.h>
+#include <platform/gpio.h>
+#include <qtimer.h>
 
-#define BITS_IN_ELEMENT(x) (sizeof(x) * 8)
-#define KEYMAP_INDEX(row, col) (row)* BITS_IN_ELEMENT(unsigned int) + (col)
+/* gpio -> key_code */
+/* for xiaomi cranco */
+#define TLMM_VOL_UP_BTN_GPIO 0x5 // keymap -> 115
+//#define TLMM_VOL_DOWN_BTN_GPIO 0x3 //keymap -> 114
 
-unsigned int apq8064_pm8921_keys_gpiomap[] = {
-	[KEYMAP_INDEX(0, 0)] = PM_GPIO(1),	/* Volume key on the device/CDP */
-	[KEYMAP_INDEX(0, 1)] = PM_GPIO(2),	/* Volume key on the device/CDP */
-};
+/*
+uint32_t target_volume_up(void)
+{
+
+	uint8_t status = 0;
+	if(TLMM_VOL_UP_BTN_GPIO == -1)
+		return 0;
+	struct pm8x41_gpio gpio;
+
+	gpio.direction = PM_GPIO_DIR_IN;
+	gpio.function  = 0;
+	gpio.pull      = PM_GPIO_PULL_UP_30;
+	gpio.vin_sel   = 2;
+	pm8x41_gpio_config(TLMM_VOL_UP_BTN_GPIO, &gpio);
+	
+	udelay(10000);
+	pm8x41_gpio_get(TLMM_VOL_UP_BTN_GPIO, &status);
+	
+	
+	return !status;
+}
+*/
+
+/* Return 1 if vol_down pressed */
+/*
+uint32_t target_volume_down(void)
+{
+	uint8_t status = 0;
+	if(TLMM_VOL_DOWN_BTN_GPIO == -1)
+		return 0;
+	struct pm8x41_gpio gpio;
+
+	gpio.direction = PM_GPIO_DIR_IN;
+	gpio.function  = 0;
+	gpio.pull      = PM_GPIO_PULL_UP_30;
+	gpio.vin_sel   = 2;
+	pm8x41_gpio_config(TLMM_VOL_DOWN_BTN_GPIO, &gpio);
+	
+	udelay(10000);
+	pm8x41_gpio_get(TLMM_VOL_DOWN_BTN_GPIO, &status);
+		
+	return !status;	
+}
+*/

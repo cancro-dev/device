@@ -37,7 +37,7 @@
 #define TLMM_VOL_UP_BTN_GPIO 0x2 // keymap -> 115
 #define TLMM_VOL_DOWN_BTN_GPIO 0x3 //keymap -> 114
 
-
+/*
 uint32_t target_volume_up(void)
 {
 
@@ -58,7 +58,7 @@ uint32_t target_volume_up(void)
 	
 	return !status;
 }
-
+*/
 /* Return 1 if vol_down pressed */
 uint32_t target_volume_down(void)
 {

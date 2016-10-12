@@ -31,13 +31,14 @@
 #include <pm8x41.h>
 #include <platform/gpio.h>
 #include <qtimer.h>
+#include <kernel/thread.h>
 
 /* gpio -> key_code */
 /* for lge nexus 5 (D820) */
 #define TLMM_VOL_UP_BTN_GPIO 0x2 // keymap -> 115
 #define TLMM_VOL_DOWN_BTN_GPIO 0x3 //keymap -> 114
 
-/*
+
 uint32_t target_volume_up(void)
 {
 
@@ -52,13 +53,14 @@ uint32_t target_volume_up(void)
 	gpio.vin_sel   = 2;
 	pm8x41_gpio_config(TLMM_VOL_UP_BTN_GPIO, &gpio);
 	
-	udelay(10000);
+	thread_sleep(1);
+
 	pm8x41_gpio_get(TLMM_VOL_UP_BTN_GPIO, &status);
 	
 	
 	return !status;
 }
-*/
+
 /* Return 1 if vol_down pressed */
 uint32_t target_volume_down(void)
 {
@@ -73,7 +75,8 @@ uint32_t target_volume_down(void)
 	gpio.vin_sel   = 2;
 	pm8x41_gpio_config(TLMM_VOL_DOWN_BTN_GPIO, &gpio);
 	
-	udelay(10000);
+	thread_sleep(1);
+
 	pm8x41_gpio_get(TLMM_VOL_DOWN_BTN_GPIO, &status);
 		
 	return !status;	
